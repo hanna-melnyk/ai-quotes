@@ -1,5 +1,10 @@
 ## AI Quote Generator App
 
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
+
 This is a Single Page Application (SPA) for generating fake stoic quotes.
 
 This project was created with Express for the backend and vanilla JavaScript for the frontend.
