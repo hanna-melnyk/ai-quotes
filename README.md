@@ -10,7 +10,8 @@ This is a Single Page Application (SPA) for generating fake stoic quotes.
 This project was created with Express for the backend and vanilla JavaScript for the frontend.
 
 
-Online Deployment of this project is available at --
+Online Deployment of this project is available [here](https://ai-quotes-65jrc97sq-hannas-projects-6148e2f6.vercel.app/)
+
 
 
 
