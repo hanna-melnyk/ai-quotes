@@ -108,7 +108,11 @@ h1 {
     border: 2px solid;
     padding: 0 2px;
     background: linear-gradient(90deg, #ff0000, #ff9900, #ffff00, #33cc33, #00ffff, #0066ff, #cc33ff, #ff3399);
+    background-size: 200% 200%; /* Scale the background to twice the size */
+    animation: 10s linear 0s infinite normal none running rainbow-background;
 }
+
+
 
 #rainbow-border {
     margin: 4px;
@@ -207,4 +211,17 @@ button {
 #menu-items-container.open .menu-item:hover {
     background-color: #8a8484; /* Background color when hovered */
     transition-delay: 0s;
+}
+
+/*define animation named rainbow-background*/
+@keyframes rainbow-background {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
