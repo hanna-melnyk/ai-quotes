@@ -11,7 +11,7 @@ export function createTextElements() {
     const textContainer = document.createElement('div');
     textContainer.className = 'div-container text';
     textContainer.id = 'thin-text';
-    textContainer.textContent = 'Get inspired by machine generated stoic-like quotes';
+    textContainer.textContent = 'Get inspired by machine generated quotes';
 
     document.body.appendChild(textContainer);
 }

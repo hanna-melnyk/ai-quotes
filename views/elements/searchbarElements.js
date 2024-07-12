@@ -28,7 +28,7 @@ export function createSearchbarElements() {
     function addTransitionDelays() {
         const menuItems = menuContainer.querySelectorAll('.menu-item');
         menuItems.forEach((item, index) => {
-            item.style.transitionDelay = `${0.25 + index * 0.05}s`;
+            item.style.setProperty('--fade-in-delay', `${0.25 + index * 0.05}s`);
         });
     }
 
@@ -36,7 +36,7 @@ export function createSearchbarElements() {
     function removeTransitionDelays() {
         const menuItems = menuContainer.querySelectorAll('.menu-item');
         menuItems.forEach((item) => {
-            item.style.transitionDelay = '0s';
+            item.style.setProperty('--fade-in-delay', '0s');
         });
     }
 
