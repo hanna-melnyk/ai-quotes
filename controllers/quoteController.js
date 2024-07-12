@@ -1,13 +1,11 @@
 // controllers/quoteController.js
-const { getFakeStoicQuote } = require('../models/quoteModel');
+import { getFakeQuote } from '../models/quoteModel.js';
 
-const generateFakeStoicQuote = async (req, res) => {
+export const generateFakeQuote = async (req, res) => {
     try {
-        const quote = await getFakeStoicQuote();
+        const quote = await getFakeQuote();
         res.json({ quote });
     } catch (error) {
         res.status(500).send('Error generating quote');
     }
 };
-
-module.exports = { generateFakeStoicQuote };

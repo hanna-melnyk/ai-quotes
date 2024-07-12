@@ -32,7 +32,13 @@ export async function getQuote(event) {
 
 
     try {
-        const response = await fetch('/api/quote');
+        const response = await fetch('/api/quote', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ person }), // Send the person's name in the request body
+        });
         const data = await response.json();
         if (response.ok) {
             quoteContainer.innerText = data.quote;

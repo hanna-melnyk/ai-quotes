@@ -12,6 +12,10 @@ export function createMenuElements() {
         const menuItem = document.createElement('div');
         menuItem.className = 'menu-item';
         menuItem.textContent = item;
+
+        menuItem.addEventListener('click', () => getQuoteByPerson(item));
+
+
         menuContainer.appendChild(menuItem);
     });
 
