@@ -7,7 +7,7 @@ export function createMenuElements() {
     // menuContainer.style.display = 'none'; // Initially hidden
 
 
-    const menuItems = ['dao', 'Simone de Beauvoir', 'Donald Trump', 'Timothy Snyder', 'Barbie', 'Bertrand Russell', 'comedian Judy Carter'];
+    const menuItems = ['Donald Trump', 'Timothy Snyder', 'Barbie'];
     menuItems.forEach(item => {
         const menuItem = document.createElement('div');
         menuItem.className = 'menu-item';
