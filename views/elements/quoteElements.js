@@ -5,25 +5,42 @@ export function createQuoteElements() {
     quoteContainer.className = 'div-container text'
     quoteContainer.textContent = 'Click the button to generate a quote.';
 
+
+
+    document.body.appendChild(quoteContainer);
+}
+
+export function createButtonElements() {
     const button = document.createElement('button');
     button.innerHTML = 'Generate Quote ✨';
     button.onclick = getQuote;
 
-    document.body.appendChild(quoteContainer);
-    document.body.appendChild(button);
+    return button;
 }
 
-async function getQuote() {
+
+export async function getQuote(event) {
+    event.preventDefault();  // Prevent form submission
+
+
+    // Create the quote container if it doesn't exist
+    let quoteContainer = document.getElementById('quote');
+    if (!quoteContainer) {
+        createQuoteElements();
+        quoteContainer = document.getElementById('quote');
+    }
+
+
     try {
         const response = await fetch('/api/quote');
         const data = await response.json();
         if (response.ok) {
-            document.getElementById('quote').innerText = data.quote;
+            quoteContainer.innerText = data.quote;
         } else {
-            document.getElementById('quote').innerText = 'Error: ' + data.error;
+            quoteContainer.innerText = 'Error: ' + data.error;
         }
     } catch (error) {
         console.error('Error fetching quote:', error);
-        document.getElementById('quote').innerText = 'Error fetching quote. Please try again later.';
+        quoteContainer.innerText = 'Error fetching quote. Please try again later.';
     }
 }

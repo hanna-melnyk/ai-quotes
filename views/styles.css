@@ -114,3 +114,71 @@ h1 {
         padding: 0px 10px;
     }
 }
+
+
+/*Searchbar----------------------------------------------------------*/
+
+.searchbar-container {
+    position: relative;
+
+
+    display: flex;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 20px; /* Add some spacing */
+    border-radius: 999px;
+    border: 2px solid;
+    padding: 0 15px;
+    background: linear-gradient(90deg, #ff0000, #ff9900, #ffff00, #33cc33, #00ffff, #0066ff, #cc33ff, #ff3399);
+}
+
+#search-input {
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    flex: 1;
+    font-size: 18px;
+    outline: none;
+    background-color: white;
+}
+
+/*Menu slide-out ----------------------------------------------------------*/
+.menu-items-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    background-color: transparent; /* Always transparent */
+    z-index: 10; /* make it appear on top of other elements */
+    overflow: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s ease-out;
+}
+
+#menu-items-container.open {
+    /*max-height: 200px;*/
+    transform: scaleY(1);
+}
+
+.menu-item {
+    padding: 10px 20px;
+    margin: 5px 0;
+    background-color: transparent; /* Initially transparent */
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease-out, background-color 0.3s ease;
+}
+
+
+.menu-items-container.open .menu-item {
+    opacity: 1;
+    background-color: #e6dfdf; /* Background color when open */
+}
+
+#menu-items-container.open .menu-item:hover {
+    background-color: #8a8484; /* Background color when hovered */
+}
