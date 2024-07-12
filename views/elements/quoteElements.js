@@ -6,11 +6,18 @@ export function createQuoteElements() {
 
     quoteContainer.className = 'div-container text'
     quoteContainer.id = 'quote';
-    quoteContainer.textContent = 'Click the button to generate a quote.';
 
 
 
     document.body.appendChild(quoteContainer);
+}
+
+// Function to remove quote container if it exists
+export function removeQuoteElements() {
+    const quoteContainer = document.getElementById('quote');
+    if (quoteContainer) {
+        quoteContainer.remove();
+    }
 }
 
 export function createButtonElements() {

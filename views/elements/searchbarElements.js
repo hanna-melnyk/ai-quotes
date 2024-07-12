@@ -1,6 +1,6 @@
 /*views/elements/searchbarElements.js*/
 import { createMenuElements, addTransitionDelays, removeTransitionDelays } from './menuElements.js';
-import {createButtonElements} from "./quoteElements.js";
+import {createButtonElements, removeQuoteElements} from "./quoteElements.js";
 
 export function createSearchbarElements() {
     const searchbarContainer = document.createElement('div');
@@ -32,6 +32,7 @@ export function createSearchbarElements() {
         menuContainer.classList.add('open');
 
         addTransitionDelays();
+        removeQuoteElements(); // Remove quote container if it exists
     });
 
     // Event listener to show menu on mousedown (to prevent immediate hiding)
@@ -41,6 +42,7 @@ export function createSearchbarElements() {
         menuContainer.classList.add('open');
 
         addTransitionDelays();
+        removeQuoteElements(); // Remove quote container if it exists
     });
 
     // Event listener to hide menu when clicking outside
