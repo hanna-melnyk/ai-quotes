@@ -1,10 +1,10 @@
 /*views/elements/searchbarElements.js*/
-import {createMenuElements} from './menuElements.js';
+import { createMenuElements, addTransitionDelays, removeTransitionDelays } from './menuElements.js';
 import {createButtonElements} from "./quoteElements.js";
 
 export function createSearchbarElements() {
     const searchbarContainer = document.createElement('div');
-    searchbarContainer.className = 'searchbar-container';
+    searchbarContainer.className = 'div-container searchbar-container';
 
     const rainbowContainer = document.createElement('div');
     rainbowContainer.id = 'rainbow-border'
@@ -15,7 +15,7 @@ export function createSearchbarElements() {
     const inputElement = document.createElement('input');
     inputElement.id = 'search-input';
     inputElement.type = 'text';
-    inputElement.placeholder = 'Write your topic or click on a button';
+    inputElement.placeholder = 'Write your topic or persona...';
 
 
     const buttonElement = createButtonElements();
@@ -24,21 +24,7 @@ export function createSearchbarElements() {
     // Create menu elements
     const menuContainer = createMenuElements();
 
-    // Function to add transition delays
-    function addTransitionDelays() {
-        const menuItems = menuContainer.querySelectorAll('.menu-item');
-        menuItems.forEach((item, index) => {
-            item.style.setProperty('--fade-in-delay', `${0.25 + index * 0.05}s`);
-        });
-    }
 
-    // Function to remove transition delays
-    function removeTransitionDelays() {
-        const menuItems = menuContainer.querySelectorAll('.menu-item');
-        menuItems.forEach((item) => {
-            item.style.setProperty('--fade-in-delay', '0s');
-        });
-    }
 
     // Event listener to show menu on input focus/click
     inputElement.addEventListener('focus', () => {

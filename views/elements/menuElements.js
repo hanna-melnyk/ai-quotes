@@ -1,4 +1,7 @@
 /*views/elements/menuElements.js*/
+import { createQuoteElements, getQuote } from './quoteElements.js';
+
+let selectedPerson = 'stoic'; // Default person
 
 export function createMenuElements() {
     const menuContainer = document.createElement('div');
@@ -13,11 +16,42 @@ export function createMenuElements() {
         menuItem.className = 'menu-item';
         menuItem.textContent = item;
 
-        menuItem.addEventListener('click', () => getQuoteByPerson(item));
+        menuItem.addEventListener('click', () =>{
+            selectedPerson = item;
+
+            hideMenuContainer(menuContainer);
+            getQuote({ preventDefault: () => {} }); // Fetch and show the quote for the selected person
+        });
 
 
         menuContainer.appendChild(menuItem);
     });
 
     return menuContainer;
+}
+
+function hideMenuContainer(menuContainer) {
+    menuContainer.classList.remove('open');
+    removeTransitionDelays();
+}
+
+
+// Function to add transition delays
+export function addTransitionDelays() {
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach((item, index) => {
+        item.style.setProperty('--fade-in-delay', `${0.25 + index * 0.05}s`);
+    });
+}
+
+// Function to remove transition delays
+export function removeTransitionDelays() {
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach((item) => {
+        item.style.setProperty('--fade-in-delay', '0s');
+    });
+}
+
+export function getSelectedPerson() {
+    return selectedPerson;
 }

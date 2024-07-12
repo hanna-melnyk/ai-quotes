@@ -7,11 +7,11 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-export const getFakeQuote = async () => {
+export const getFakeQuote = async (person) => {
     try {
         const completion = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
-            messages: [{ role: 'system', content: 'Generate a fake stoic quote that sounds like a real one.' }],
+            messages: [{ role: 'system', content: `Generate a fake ${person}  quote that sounds like a real one.` }],
         });
         return completion.choices[0].message.content.trim();
     } catch (error) {

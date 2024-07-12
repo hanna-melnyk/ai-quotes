@@ -1,8 +1,11 @@
 /*views/elements/quoteElements.js*/
+import {getSelectedPerson} from "./menuElements.js";
+
 export function createQuoteElements() {
     const quoteContainer = document.createElement('div');
-    quoteContainer.id = 'quote';
+
     quoteContainer.className = 'div-container text'
+    quoteContainer.id = 'quote';
     quoteContainer.textContent = 'Click the button to generate a quote.';
 
 
@@ -30,6 +33,7 @@ export async function getQuote(event) {
         quoteContainer = document.getElementById('quote');
     }
 
+    const person = getSelectedPerson();
 
     try {
         const response = await fetch('/api/quote', {
