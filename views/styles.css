@@ -8,7 +8,12 @@ body {
     margin: 0;
     flex-direction: column;
 }
-
+#thin-text{
+    background-color: #2bc28c;
+    display: block;
+    /* transition: all 0.3s ease;
+    transition-duration: 1s; */
+}
 .div-container {
     display: flex;
     justify-content: space-around;
@@ -27,8 +32,9 @@ body {
     max-width: 500px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 1,5rem;
     width: 90%; /*makes it responsive*/
+    height: 90%;
 }
 
 #quote::before {
