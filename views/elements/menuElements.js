@@ -3,7 +3,7 @@ import { createQuoteElements, getQuote } from './quoteElements.js';
 
 let selectedPerson = 'stoic'; // Default person
 
-export function createMenuElements() {
+export function createMenuElements(inputElement) {
     const menuContainer = document.createElement('div');
     menuContainer.id = 'menu-items-container';
     menuContainer.className = 'menu-items-container';
@@ -17,7 +17,9 @@ export function createMenuElements() {
         menuItem.textContent = item;
 
         menuItem.addEventListener('click', () =>{
-            selectedPerson = item;
+            setSelectedPerson(item);
+
+            inputElement.value = item; // Place the selected item into the input field
 
             hideMenuContainer(menuContainer);
             getQuote({ preventDefault: () => {} }); // Fetch and show the quote for the selected person
@@ -50,6 +52,9 @@ export function removeTransitionDelays() {
     menuItems.forEach((item) => {
         item.style.setProperty('--fade-in-delay', '0s');
     });
+}
+export function setSelectedPerson(person) {
+    selectedPerson = person;
 }
 
 export function getSelectedPerson() {

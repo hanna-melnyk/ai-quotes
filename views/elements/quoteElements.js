@@ -2,14 +2,14 @@
 import {getSelectedPerson} from "./menuElements.js";
 
 export function createQuoteElements() {
-    const quoteContainer = document.createElement('div');
 
-    quoteContainer.className = 'div-container text'
-    quoteContainer.id = 'quote';
+    const quoteElement = document.createElement('div');
+    quoteElement.className = 'div-container text'
+    quoteElement.id = 'quote';
 
 
 
-    document.body.appendChild(quoteContainer);
+    document.body.appendChild(quoteElement);
 }
 
 // Function to remove quote container if it exists
@@ -23,9 +23,14 @@ export function removeQuoteElements() {
 export function createButtonElements() {
     const button = document.createElement('button');
     button.innerHTML = 'Generate Quote ✨';
-    button.onclick = getQuote;
+    // button.onclick = getQuote;
+    button.type = 'submit';
 
     return button;
+}
+
+export function scrollToSearchbar() {
+    document.querySelector('.searchbar-container').scrollIntoView({ behavior: 'smooth' });
 }
 
 
@@ -53,6 +58,7 @@ export async function getQuote(event) {
         const data = await response.json();
         if (response.ok) {
             quoteContainer.innerText = data.quote;
+            scrollToSearchbar();
         } else {
             quoteContainer.innerText = 'Error: ' + data.error;
         }
